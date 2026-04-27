@@ -48,6 +48,12 @@ const inputSchema = {
     .boolean()
     .optional()
     .describe('If true, restrict results to Pokemon Champions roster.'),
+  tiers: z
+    .array(z.string())
+    .optional()
+    .describe(
+      'Filter by Champions tier (e.g. ["OU"], ["Uber"], ["OU","Uber"]). Implies champions_only.',
+    ),
   limit: z.number().int().min(1).max(500).optional().describe('Default 50.'),
 };
 
@@ -90,8 +96,11 @@ export function registerFindPokemon(server: McpServer): void {
       if (args.min_total !== undefined) conditions.push(gte(totalExpr, args.min_total));
       if (args.max_total !== undefined) conditions.push(lte(totalExpr, args.max_total));
 
-      if (args.champions_only) {
+      if (args.champions_only || args.tiers?.length) {
         conditions.push(eq(pokemon.isChampions, true));
+      }
+      if (args.tiers?.length) {
+        conditions.push(inArray(pokemon.championsTier, args.tiers));
       }
 
       if (args.has_ability) {

@@ -103,6 +103,12 @@ const inputSchema = {
   defender: sideSchema,
   move: moveSchema,
   field: fieldSchema,
+  game_type: z
+    .enum(['Singles', 'Doubles'])
+    .default('Doubles')
+    .describe(
+      'Battle format. Defaults to Doubles (VGC 2026 Reg M-A). Affects spread move multiplier and other doubles-specific mechanics.',
+    ),
 };
 
 function capitalize(s: string): string {
@@ -140,10 +146,10 @@ export function registerDamageCalc(server: McpServer): void {
     {
       title: 'damage_calc',
       description:
-        'Run a Gen 9 damage calculation via @smogon/calc. Returns damage rolls (16 values), HP-percent range, KO chance, and a human-readable description. Set `teraType` to evaluate post-Tera matchups.',
+        'Run a Gen 9 damage calculation via @smogon/calc. Defaults to Doubles (VGC 2026 Reg M-A); pass `game_type: "Singles"` for single battles. Spread moves auto-apply x0.75 in Doubles. Returns damage rolls (16 values), HP-percent range, KO chance, and a human-readable description. Set `teraType` to evaluate post-Tera matchups.',
       inputSchema,
     },
-    async ({ attacker, defender, move, field }) => {
+    async ({ attacker, defender, move, field, game_type }) => {
       const [attackerName, defenderName] = await Promise.all([
         resolveNameEn(attacker.pokemon),
         resolveNameEn(defender.pokemon),
@@ -158,7 +164,7 @@ export function registerDamageCalc(server: McpServer): void {
       });
 
       const calcField = new Field({
-        gameType: 'Singles',
+        gameType: game_type,
         ...(field?.weather !== undefined && { weather: field.weather }),
         ...(field?.terrain !== undefined && { terrain: field.terrain }),
         defenderSide: {
