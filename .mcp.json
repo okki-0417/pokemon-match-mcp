@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "pokemon-match": {
+      "type": "stdio",
+      "command": "pnpm",
+      "args": ["tsx", "src/server.ts"]
+    }
+  }
+}
