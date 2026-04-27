@@ -44,6 +44,10 @@ const inputSchema = {
     .string()
     .optional()
     .describe('Ability ID. Pokemon must list this ability (any slot).'),
+  champions_only: z
+    .boolean()
+    .optional()
+    .describe('If true, restrict results to Pokemon Champions roster.'),
   limit: z.number().int().min(1).max(500).optional().describe('Default 50.'),
 };
 
@@ -53,7 +57,7 @@ export function registerFindPokemon(server: McpServer): void {
     {
       title: 'find_pokemon',
       description:
-        'Filter Pokemon by types, defensive type-resistances, base stat ranges, total stats, and ability. Returns matches sorted by ID. Combine with compute_type_matchup for exploratory team building.',
+        'Filter Pokemon by types, defensive type-resistances, base stat ranges, total stats, ability, and Pokemon Champions roster membership. Returns matches sorted by ID. Combine with compute_type_matchup for exploratory team building.',
       inputSchema,
     },
     async (args) => {
@@ -85,6 +89,10 @@ export function registerFindPokemon(server: McpServer): void {
       const totalExpr = sql<number>`(${pokemon.hp} + ${pokemon.atk} + ${pokemon.def} + ${pokemon.spa} + ${pokemon.spd} + ${pokemon.spe})`;
       if (args.min_total !== undefined) conditions.push(gte(totalExpr, args.min_total));
       if (args.max_total !== undefined) conditions.push(lte(totalExpr, args.max_total));
+
+      if (args.champions_only) {
+        conditions.push(eq(pokemon.isChampions, true));
+      }
 
       if (args.has_ability) {
         const abilityId = args.has_ability;

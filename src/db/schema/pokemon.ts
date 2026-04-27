@@ -1,4 +1,4 @@
-import { pgEnum, pgTable, integer, text, primaryKey } from 'drizzle-orm/pg-core';
+import { pgEnum, pgTable, integer, text, primaryKey, boolean } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 import { abilities } from './abilities.js';
 
@@ -37,6 +37,8 @@ export const pokemon = pgTable('pokemon', {
   spa: integer('spa').notNull(),
   spd: integer('spd').notNull(),
   spe: integer('spe').notNull(),
+  isChampions: boolean('is_champions').notNull().default(false),
+  championsTier: text('champions_tier'),
 });
 
 export const pokemonAbilities = pgTable(

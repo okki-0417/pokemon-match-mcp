@@ -5,6 +5,9 @@ import { registerPing } from './tools/ping.js';
 import { registerComputeTypeMatchup } from './tools/compute-type-matchup.js';
 import { registerGetPokemon } from './tools/get-pokemon.js';
 import { registerFindPokemon } from './tools/find-pokemon.js';
+import { registerDamageCalc } from './tools/damage-calc.js';
+import { registerGetPokemonMoves } from './tools/get-pokemon-moves.js';
+import { registerFindMoves } from './tools/find-moves.js';
 
 const server = new McpServer({
   name: 'pokemon-match',
@@ -15,6 +18,9 @@ registerPing(server);
 registerComputeTypeMatchup(server);
 registerGetPokemon(server);
 registerFindPokemon(server);
+registerDamageCalc(server);
+registerGetPokemonMoves(server);
+registerFindMoves(server);
 
 const transport = new StdioServerTransport();
 transport.onclose = async () => {

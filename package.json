@@ -16,8 +16,15 @@
     "test:watch": "vitest",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx src/db/migrate.ts",
-    "db:seed": "tsx src/etl/seed-pokemon.ts",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "data:fetch-jp": "tsx src/etl/fetch-jp-names.ts",
+    "data:fetch-showdown": "tsx src/etl/fetch-showdown-champions.ts",
+    "data:refresh": "pnpm data:fetch-jp && pnpm data:fetch-showdown",
+    "db:seed-pokemon": "tsx src/etl/seed-pokemon.ts",
+    "db:seed-champions": "tsx src/etl/seed-champions.ts",
+    "db:seed-moves": "tsx src/etl/seed-moves.ts",
+    "db:seed-learnsets": "tsx src/etl/seed-learnsets.ts",
+    "db:setup": "pnpm db:migrate && pnpm db:seed-pokemon && pnpm db:seed-champions && pnpm db:seed-moves && pnpm db:seed-learnsets"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
@@ -36,6 +43,7 @@
     "@pkmn/data": "^0.10.7",
     "@pkmn/dex": "^0.10.7",
     "@pkmn/sim": "^0.10.7",
+    "@smogon/calc": "^0.11.0",
     "dotenv": "^17.4.2",
     "drizzle-orm": "^0.45.2",
     "postgres": "^3.4.9",

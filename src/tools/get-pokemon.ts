@@ -1,18 +1,15 @@
 import { z } from 'zod';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { eq } from 'drizzle-orm';
 import { db } from '../db/client.js';
-import { pokemon } from '../db/schema/index.js';
-
-function toId(s: string): string {
-  return s.toLowerCase().replace(/[^a-z0-9]/g, '');
-}
+import { pokemonLookup } from '../db/lookup.js';
 
 const inputSchema = {
   name: z
     .string()
     .min(1)
-    .describe('Pokemon name or ID. Case/whitespace-insensitive (e.g. "Iron Valiant" → "ironvaliant").'),
+    .describe(
+      'Pokemon name or ID. Accepts English ("Iron Valiant"), normalized ID ("ironvaliant"), or Japanese name ("テツノブジン"). Case/whitespace-insensitive.',
+    ),
 };
 
 export function registerGetPokemon(server: McpServer): void {
@@ -25,9 +22,8 @@ export function registerGetPokemon(server: McpServer): void {
       inputSchema,
     },
     async ({ name }) => {
-      const id = toId(name);
       const row = await db.query.pokemon.findFirst({
-        where: eq(pokemon.id, id),
+        where: pokemonLookup(name),
         with: {
           abilities: {
             with: { ability: true },
@@ -35,7 +31,7 @@ export function registerGetPokemon(server: McpServer): void {
         },
       });
       if (!row) {
-        throw new Error(`Pokemon not found: "${name}" (id="${id}")`);
+        throw new Error(`Pokemon not found: "${name}"`);
       }
 
       const baseStats = {
@@ -52,6 +48,7 @@ export function registerGetPokemon(server: McpServer): void {
         .map((pa) => ({
           id: pa.ability.id,
           name: pa.ability.nameEn,
+          nameJa: pa.ability.nameJa,
           slot: pa.slot,
           description: pa.ability.description,
         }))
