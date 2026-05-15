@@ -88,45 +88,52 @@ Champions オリジナル メガ進化 (e.g. Mega Meganium with Mega Sol、Mega 
 
 ソース切替を将来できるよう、共通インターフェース `ChampionsSource` (`src/etl/sources/types.ts`) を経由する。新ソース追加時は同インターフェースを実装するだけ。
 
-## DB スキーマ概要
+## DB スキーマ概要 (SQLite)
 
-- `pokemon` — ベース層(普遍的なポケモンデータ)
-- `moves`, `abilities`, `items` — マスター
-- `learnsets` — `(pokemon, move, series_version)`
-- `series_metadata` — シリーズ固有(Champions内定可否・メガ可否、`series_version` でバージョン管理し差分追加に対応)
-- `usage_stats` — `(format, month, pokemon)` 採用率・テラスタル傾向(Champions では非該当)・技採用率・組合せ統計
-- `replays` (フェーズ2) — Showdown replay の正規化形
+| テーブル | 行数 | 主な列 |
+|---|---:|---|
+| `pokemon` | 1,414 (Champions 277) | type1/2 / 種族値 / abilities (中間) / weightkg / gen / dex_num / forme 関係 (base_species, prevo, evos, other_formes, is_mega, is_primal) / Smogon tier 系 / tags |
+| `pokemon_abilities` | 3,101 | (pokemon_id, ability_id) + slot (primary/secondary/hidden) |
+| `abilities` | 314 | EN/JP 名 / desc / desc_long / flags (breakable 等) |
+| `moves` | 887 | type / category / BP / accuracy / PP / priority / target / flags / secondaries / crit_ratio / multihit / drain / recoil / heal / self_switch / volatile_status / ignore_ability / ignore_immunity |
+| `learnsets` | 17,084 | (pokemon_id, move_id) + sources (`9L13` / `9M` 等) |
+| `natures` | 25 | EN/JP 名 / plus / minus stat |
+| `items` | 580 (Champions 117) | desc / is_champions / is_berry / mega_stone (jsonb) / fling / natural_gift / item_user / on_memory |
+| `usage_stats` | 263 | (format, year_month, elo_cutoff, pokemon_id) + usage_pct / raw_count / moves/items/abilities/teammates/spreads (各 jsonb) |
 
-## MCP ツール一覧 (案)
+JSON 列は better-sqlite3 + Drizzle が JS 側で自動 parse / stringify。タイプチャートは `src/domain/type-chart.ts` (DB 化せずコード側固定)。
 
-### 検索 / フィルタ
-- `find_pokemon(filters)` — タイプ耐性・タイプ無効・素早さ帯・覚える技・役割などの多軸絞り込み
-- `find_moves(filters)` — BP/タイプ/効果/覚えるポケモン/採用率(`neglected=true` で埋もれた強技発掘)
-- `find_complementary_partners(pokemon, n)` — 弱点を耐性で補う候補をスコア順
+## MCP ツール一覧 (12 本)
 
-### 評価 / 計算
-- `analyze_team_coverage(team)` — 攻撃面/防御面のタイプ穴を数値で
-- `analyze_role_balance(team)` — 起点作成・崩し・受け・抜き・場作りの充足度
-- `damage_calc(attacker, defender, move, conditions)` — `@smogon/calc` ラッパー、確定数を返す
-- `speed_tier_analysis(team, meta_threats)` — メタ脅威に対する抜ける/抜かれる関係表
-- `evaluate_team(team)` — 上記の総合スコア
+| ツール | 役割 |
+|---|---|
+| `ping` | ヘルスチェック + データソース帰属表記 |
+| `get_pokemon` | 種族詳細 (タイプ・種族値・特性 slot 付き) |
+| `find_pokemon` | 多軸フィルタ (タイプ/耐性/種族値範囲/特性/Champions/tier) |
+| `compute_type_matchup` | 防御面相性表 (×4/2/1/0.5/0.25/0、特性無効化対応) |
+| `get_pokemon_moves` | Champions で覚える全技 |
+| `find_moves` | 技フィルタ (type/category/BP/精度/優先度/target/flags/learner) |
+| `damage_calc` | @smogon/calc Gen 9。Doubles 既定、スプレッド技自動 ×0.75 |
+| `get_item` / `find_items` | 持ち物詳細 / フィルタ (champions/berry/mega/holder/memory) |
+| `find_natures` | 性格 25 種フィルタ |
+| `find_meta_threats` | Smogon usage 上位ポケ |
+| `get_pokemon_usage` | 種別の実採用 (技/道具/特性/同居率/努力値スプレッド) |
 
-### メタ参照
-- `get_meta_threats(format, top_n)` — 対策必須ポケモン上位(対策フェーズで使う)
-- `get_common_teammates(pokemon)` — 同居率の高いポケモン(参考情報)
+入出力ともポケ名・技名・特性・道具・性格は **EN / 日本語 / 正規化 ID** どれでも受け付け。出力 JSON の `name` は JP 主、`nameEn` 補助。
 
-### 取得 (lookup)
-- `get_pokemon(name)`, `get_move(name)`, `get_ability(name)`, `get_item(name)`
+設計指針 (cf. `memory/design_primitives.md`): **総合スコア / ランキングを返すツールは作らない**。プリミティブを AI が組み合わせて探索する方式。
 
 ## マイルストーン
 
-- **M1** リポジトリ初期化、SQLite (better-sqlite3)、DB スキーマ、ETL スケルトン
-- **M2** ベースデータ + Champions 差分の取り込み完了
-- **M3** MCP サーバー基盤、`get_*` / `find_pokemon` / `damage_calc` 実装
-- **M4** 評価系ツール(`analyze_team_coverage`, `analyze_role_balance`, `evaluate_team` 等)
-- **M5** Claude Code から実用、`CLAUDE.md` と Skills で探索プロセスを誘導
-- **M6** usage stats 取り込み、メタ参照ツール、`find_moves(neglected=true)` の実装
-- **M7 (フェーズ2)** 棋譜取り込み、対戦中アドバイザーツール
+- **M1** ✅ リポジトリ初期化、SQLite (better-sqlite3)、DB スキーマ、ETL スケルトン
+- **M2** ✅ ベースデータ + Champions 差分の取り込み (Smogon mod + @pkmn/dex)
+- **M3** ✅ MCP サーバー基盤、12 ツール実装
+- **M4** ✅ Champions オリジナルメガの type/ability/baseStats overrides (otterlyclueless 取込)
+- **M5** ✅ Claude Code 実用、`CLAUDE.md` + `ARCHETYPES.md` + `BUILDS/` で探索プロセス誘導
+- **M6** ✅ Smogon usage stats 取込、`find_meta_threats` / `get_pokemon_usage`
+- **M7** ✅ 整合性検査 `db:doctor` (12 checks)
+- **M8 (将来)** テスト基盤・item effects 構造化・採用率時系列拡充 → `BACKLOG.md`
+- **M9 (フェーズ2)** 棋譜取り込み、対戦中アドバイザーツール
 
 ## 技術スタック
 
@@ -155,6 +162,8 @@ echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":
 
 ## オープンな論点
 
-- **探索の深さ**: Claude Code の agentic ループで「浅い提案で終わる」現象が頻発する場合、`CLAUDE.md` の指示強化で対応するか、専用エージェント層 (L2) を後付けするかを判断する
-- **メタデータの更新運用**: Showdown 側の Champions mod 構造が安定してくるまで、ETL 側のスキーマ追従コストを観察する必要がある
-- **役割タグの付与**: 「起点作成」「崩し」「受け」等の役割は Showdown データには無いため、Smogon フォーラムの分析記事や手動キュレーションで補う必要がある(自動分類できる部分は速度・耐久・技構成から推定する余地あり)
+- **テスト基盤**: vitest 同梱だが現状テスト 0。`type-chart.ts` / `lookup.ts` / `seed-learnsets.ts:resolveLearnset` は単体テストの第一候補
+- **役割タグの付与**: 「起点作成」「崩し」「受け」等は Showdown / otterlyclueless にも無い。手動キュレーション or LLM 自動分類が必要 (cf. BACKLOG C)
+- **採用率の時系列**: 現状 1 スナップショット (2026-04 / elo 1500)。月次蓄積 + cron 化は未着手 (cf. BACKLOG E)
+- **Champions オリジナル species の上流追従**: `otterlyclueless/pokemon-champions-data` は ★少のコミュニティ管理リポ。新メガ追加で更新が止まったら代替ソース調査が必要 (`ChampionsSource` interface で差替可)
+- **メガ枠制約のデータ化**: Champions の「1 体までメガ進化可」ルールは現在データ未表現。AI 側のマナー任せ

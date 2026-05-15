@@ -2,24 +2,36 @@
 
 ポケモンデータ収集の現状棚卸しと、未着手タスク。優先順は「低コスト × 高レバレッジ」。
 
-最終更新: 2026-05-14。実装が進んだら本ファイルを更新。
+最終更新: 2026-05-15。実装が進んだら本ファイルを更新。
 
 ## ✅ 完了 (現状の到達点)
 
+### インフラ
+- **SQLite (better-sqlite3)** 単一ファイル DB (`data/db.sqlite`)。Postgres / Docker は廃止
+- `pnpm db:setup` 一発・~10 秒・ネット不要 (キャッシュ前提)
+- 整合性検査 `pnpm db:doctor` (12 checks)
+
 ### データ
-- `pokemon` 1414 (Champions 内定 274、tier OU/Uber/NFE 設定済み)
-  - **+ weightkg / gen / dex_num / base_species / forme / prevo / evos / other_formes / is_mega / is_primal / egg_groups / gender_ratio / tier / doubles_tier / nat_dex_tier / tags**
-- `abilities` 310 (EN+JP+短説明、ポケ-特性中間 3101)
-  - **+ flags (breakable 等) / desc_long**
-- `moves` 887 (EN+JP+type/category/BP/accuracy/PP/priority + target/flags/secondaries)
-  - **+ crit_ratio / multihit / drain / recoil / heal / self_switch / volatile_status / ignore_ability / ignore_immunity / non_ghost_target / desc_long**
-- `learnsets` 16,892 (Champions 274 体すべてに付与、Gourgeist サイズ違いの fallback 修正済)
+- `pokemon` 1,414 (Champions 内定 **277**、tier 内訳 OU 266 / Uber 5 / unset 4 / NFE 1 / Illegal 1)
+  - 列: type1/2 + 種族値 + **weightkg / gen / dex_num / base_species / forme / prevo / evos / other_formes / is_mega / is_primal / egg_groups / gender_ratio / tier / doubles_tier / nat_dex_tier / tags**
+- `abilities` 314 (EN+JP+短説明 + **flags / desc_long**)、ポケ-特性中間 3,101
+- `moves` 887 (EN+JP + type/category/BP/accuracy/PP/priority + **target / flags / secondaries / crit_ratio / multihit / drain / recoil / heal / self_switch / volatile_status / ignore_ability / ignore_immunity / non_ghost_target / desc_long**)
+- `learnsets` **17,084** (Champions 277 体すべてに付与、Gourgeist サイズ違い + Floette/Meowstic-F/Magearna-Original のメガ継承 fallback 修正済)
 - `natures` 25 (EN+JP+plus/minus)
-- `items` 580 (Champions 117、`mega_stone`/`fling`/`natural_gift`/`item_user`/`on_memory` + **desc_long** 含む)
-- `usage_stats` 263 行 (gen9championsvgc2026regma / 2026-04 / elo 1500 のスナップショット)
+- `items` 580 (Champions 117、`mega_stone`/`fling`/`natural_gift`/`item_user`/`on_memory` + **desc_long**)
+- `usage_stats` 263 (gen9championsvgc2026regma / 2026-04 / elo 1500 スナップショット、`(format, year_month, elo_cutoff, usage_pct DESC)` インデックス付)
+
+### Champions オリジナル overrides (CC BY 4.0)
+- `otterlyclueless/pokemon-champions-data` から 60 mega + base 形態 = 259 上書き (types / abilities / baseStats)
+- 新特性 4 件 (Mega Sol / Dragonize / Piercing Drill / Spicy Spray) + JP 名手動マップ
+- `ChampionsSource` interface でソース差替可 (`src/etl/sources/`)
 
 ### MCP ツール (12 本)
-get_pokemon / find_pokemon / compute_type_matchup / get_pokemon_moves / find_moves / damage_calc / get_item / find_items / find_natures / find_meta_threats / get_pokemon_usage / ping
+ping / get_pokemon / find_pokemon / compute_type_matchup / get_pokemon_moves / find_moves / damage_calc / get_item / find_items / find_natures / find_meta_threats / get_pokemon_usage
+
+- 入出力すべて **EN / 日本語 / 正規化 ID** 受付 (lookup helper)
+- 出力 JSON は **JP 主 (`name`)、EN 補助 (`nameEn`)**
+- ツール `description` および全パラメータ `.describe()` を **日本語化済み**
 
 ---
 
