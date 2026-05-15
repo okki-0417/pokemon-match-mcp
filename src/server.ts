@@ -1,6 +1,6 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
-import { sql } from './db/client.js';
+import { sqlite } from './db/client.js';
 import { registerPing } from './tools/ping.js';
 import { registerComputeTypeMatchup } from './tools/compute-type-matchup.js';
 import { registerGetPokemon } from './tools/get-pokemon.js';
@@ -8,6 +8,11 @@ import { registerFindPokemon } from './tools/find-pokemon.js';
 import { registerDamageCalc } from './tools/damage-calc.js';
 import { registerGetPokemonMoves } from './tools/get-pokemon-moves.js';
 import { registerFindMoves } from './tools/find-moves.js';
+import { registerGetItem } from './tools/get-item.js';
+import { registerFindItems } from './tools/find-items.js';
+import { registerFindNatures } from './tools/find-natures.js';
+import { registerFindMetaThreats } from './tools/find-meta-threats.js';
+import { registerGetPokemonUsage } from './tools/get-pokemon-usage.js';
 
 const server = new McpServer({
   name: 'pokemon-match',
@@ -21,9 +26,14 @@ registerFindPokemon(server);
 registerDamageCalc(server);
 registerGetPokemonMoves(server);
 registerFindMoves(server);
+registerGetItem(server);
+registerFindItems(server);
+registerFindNatures(server);
+registerFindMetaThreats(server);
+registerGetPokemonUsage(server);
 
 const transport = new StdioServerTransport();
-transport.onclose = async () => {
-  await sql.end();
+transport.onclose = () => {
+  sqlite.close();
 };
 await server.connect(transport);

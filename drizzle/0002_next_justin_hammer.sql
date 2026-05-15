@@ -1,1 +1,0 @@
-ALTER TABLE "pokemon" ADD COLUMN "is_champions" boolean DEFAULT false NOT NULL;

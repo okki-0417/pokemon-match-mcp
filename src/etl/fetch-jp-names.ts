@@ -78,6 +78,9 @@ const abilitiesJa = await fetchByList('ability');
 console.log(`fetching move list...`);
 const movesJa = await fetchByList('move');
 
+console.log(`fetching item list...`);
+const itemsJa = await fetchByList('item');
+
 await mkdir(dirname(OUTPUT_PATH), { recursive: true });
 await writeFile(
   OUTPUT_PATH,
@@ -86,6 +89,7 @@ await writeFile(
       species: speciesJa,
       abilities: abilitiesJa,
       moves: movesJa,
+      items: itemsJa,
     },
     null,
     2,
@@ -93,5 +97,5 @@ await writeFile(
 );
 
 console.log(
-  `wrote ${OUTPUT_PATH}: ${Object.keys(speciesJa).length} species, ${Object.keys(abilitiesJa).length} abilities, ${Object.keys(movesJa).length} moves`,
+  `wrote ${OUTPUT_PATH}: ${Object.keys(speciesJa).length} species, ${Object.keys(abilitiesJa).length} abilities, ${Object.keys(movesJa).length} moves, ${Object.keys(itemsJa).length} items`,
 );

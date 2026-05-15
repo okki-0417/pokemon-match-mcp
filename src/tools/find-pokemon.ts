@@ -15,16 +15,16 @@ const inputSchema = {
   types_any: z
     .array(typeEnum)
     .optional()
-    .describe('Pokemon must have at least one of these types.'),
+    .describe('指定タイプのいずれかを持つポケモンに絞る。'),
   types_none: z
     .array(typeEnum)
     .optional()
-    .describe('Pokemon must have none of these types.'),
+    .describe('指定タイプを持たないポケモンに絞る。'),
   resists: z
     .array(typeEnum)
     .optional()
     .describe(
-      'Pokemon must resist all listed attacker types (defensive multiplier < 1, type-based only — abilities are not considered).',
+      '指定攻撃タイプすべてを半減以下 (×0.5/×0.25/×0) で受けるポケモンに絞る。タイプベースのみ、特性無効化は考慮しない。',
     ),
   min_hp: z.number().int().optional(),
   max_hp: z.number().int().optional(),
@@ -43,18 +43,18 @@ const inputSchema = {
   has_ability: z
     .string()
     .optional()
-    .describe('Ability ID. Pokemon must list this ability (any slot).'),
+    .describe('特性 ID (例: "roughskin")。この特性を持つポケモンに絞る。'),
   champions_only: z
     .boolean()
     .optional()
-    .describe('If true, restrict results to Pokemon Champions roster.'),
+    .describe('true ならポケモンチャンピオンズ内定ロスターのみ。'),
   tiers: z
     .array(z.string())
     .optional()
     .describe(
-      'Filter by Champions tier (e.g. ["OU"], ["Uber"], ["OU","Uber"]). Implies champions_only.',
+      'Champions tier で絞る (例: ["OU"], ["Uber"], ["OU","Uber"])。指定すると champions_only も自動 true。',
     ),
-  limit: z.number().int().min(1).max(500).optional().describe('Default 50.'),
+  limit: z.number().int().min(1).max(500).optional().describe('デフォルト 50。'),
 };
 
 export function registerFindPokemon(server: McpServer): void {
@@ -63,7 +63,7 @@ export function registerFindPokemon(server: McpServer): void {
     {
       title: 'find_pokemon',
       description:
-        'Filter Pokemon by types, defensive type-resistances, base stat ranges, total stats, ability, and Pokemon Champions roster membership. Returns matches sorted by ID. Combine with compute_type_matchup for exploratory team building.',
+        'タイプ・防御耐性・種族値範囲・合計種族値・特性・Champions ロスター内定で絞り込み。結果は ID 順。compute_type_matchup と組み合わせて補完候補を探索する用途。',
       inputSchema,
     },
     async (args) => {
@@ -127,13 +127,14 @@ export function registerFindPokemon(server: McpServer): void {
       const filtered = args.resists?.length
         ? rows.filter((p) => {
             const matchup = computeDefensiveMatchup(p.type1, p.type2);
-            return args.resists!.every((t) => matchup[t] < 1);
+            return args.resists!.every((t) => (matchup[t] ?? 1) < 1);
           })
         : rows;
 
       const results = filtered.slice(0, limit).map((p) => ({
         id: p.id,
-        name: p.nameEn,
+        name: p.nameJa ?? p.nameEn,
+        nameEn: p.nameEn,
         types: p.type2 ? [p.type1, p.type2] : [p.type1],
         baseStats: {
           hp: p.hp, atk: p.atk, def: p.def, spa: p.spa, spd: p.spd, spe: p.spe,

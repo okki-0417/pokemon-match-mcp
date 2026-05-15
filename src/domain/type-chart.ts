@@ -1,8 +1,8 @@
-import { pokemonType } from '../db/schema/index.js';
+import { POKEMON_TYPES, type PokemonType } from '../db/schema/index.js';
 
-export type TypeName = (typeof pokemonType.enumValues)[number];
+export type TypeName = PokemonType;
 
-export const TYPE_NAMES: readonly TypeName[] = pokemonType.enumValues;
+export const TYPE_NAMES: readonly TypeName[] = POKEMON_TYPES;
 
 // TYPE_CHART[attacker][defender] = damage multiplier. Missing entries default to 1.
 // Standard gen 6+ chart (includes Fairy).
@@ -43,7 +43,8 @@ const TYPE_CHART: Record<TypeName, Partial<Record<TypeName, number>>> = {
 };
 
 export function effectiveness(attacker: TypeName, defender: TypeName): number {
-  return TYPE_CHART[attacker][defender] ?? 1;
+  const row = TYPE_CHART[attacker];
+  return row?.[defender] ?? 1;
 }
 
 // Multipliers granted by abilities. Multiplied with the type-chart result.

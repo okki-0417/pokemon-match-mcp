@@ -19,14 +19,23 @@
     "db:studio": "drizzle-kit studio",
     "data:fetch-jp": "tsx src/etl/fetch-jp-names.ts",
     "data:fetch-showdown": "tsx src/etl/fetch-showdown-champions.ts",
-    "data:refresh": "pnpm data:fetch-jp && pnpm data:fetch-showdown",
+    "data:fetch-smogon-stats": "tsx src/etl/fetch-smogon-stats.ts",
+    "data:fetch-champions-overrides": "tsx src/etl/fetch-champions-overrides.ts",
+    "data:refresh": "pnpm data:fetch-jp && pnpm data:fetch-showdown && pnpm data:fetch-champions-overrides",
     "db:seed-pokemon": "tsx src/etl/seed-pokemon.ts",
     "db:seed-champions": "tsx src/etl/seed-champions.ts",
     "db:seed-moves": "tsx src/etl/seed-moves.ts",
     "db:seed-learnsets": "tsx src/etl/seed-learnsets.ts",
-    "db:setup": "pnpm db:migrate && pnpm db:seed-pokemon && pnpm db:seed-champions && pnpm db:seed-moves && pnpm db:seed-learnsets"
+    "db:seed-natures": "tsx src/etl/seed-natures.ts",
+    "db:seed-items": "tsx src/etl/seed-items.ts",
+    "db:seed-usage-stats": "tsx src/etl/seed-usage-stats.ts",
+    "db:seed-champions-overrides": "tsx src/etl/seed-champions-overrides.ts",
+    "db:doctor": "tsx src/etl/doctor.ts",
+    "db:reseed-all": "pnpm db:seed-pokemon && pnpm db:seed-champions && pnpm db:seed-moves && pnpm db:seed-learnsets && pnpm db:seed-natures && pnpm db:seed-items && pnpm db:seed-champions-overrides && SMOGON_OPTIONAL=1 pnpm db:seed-usage-stats",
+    "db:setup": "pnpm db:migrate && pnpm db:seed-pokemon && pnpm db:seed-champions && pnpm db:seed-moves && pnpm db:seed-learnsets && pnpm db:seed-natures && pnpm db:seed-items && pnpm db:seed-champions-overrides && SMOGON_OPTIONAL=1 pnpm db:seed-usage-stats"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^22.10.0",
     "drizzle-kit": "^0.31.10",
     "tsx": "^4.19.0",
@@ -35,7 +44,8 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "esbuild"
+      "esbuild",
+      "better-sqlite3"
     ]
   },
   "dependencies": {
@@ -44,9 +54,9 @@
     "@pkmn/dex": "^0.10.7",
     "@pkmn/sim": "^0.10.7",
     "@smogon/calc": "^0.11.0",
+    "better-sqlite3": "^12.10.0",
     "dotenv": "^17.4.2",
     "drizzle-orm": "^0.45.2",
-    "postgres": "^3.4.9",
     "zod": "^4.3.6"
   }
 }

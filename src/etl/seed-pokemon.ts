@@ -2,14 +2,17 @@ import 'dotenv/config';
 import { readFile } from 'node:fs/promises';
 import { Dex } from '@pkmn/dex';
 import { sql as raw } from 'drizzle-orm';
-import { db, sql } from '../db/client.js';
+import { db, sqlite } from '../db/client.js';
 import {
   pokemon,
   abilities,
   pokemonAbilities,
-  pokemonType,
-  abilitySlot,
+  POKEMON_TYPES,
+  ABILITY_SLOTS,
+  type PokemonType,
+  type AbilitySlot,
 } from '../db/schema/index.js';
+import { chunked, chunkSize } from './_chunk.js';
 
 type JpNames = {
   species: Record<string, string>;
@@ -28,10 +31,11 @@ try {
 type PokemonInsert = typeof pokemon.$inferInsert;
 type AbilityInsert = typeof abilities.$inferInsert;
 type PokemonAbilityInsert = typeof pokemonAbilities.$inferInsert;
-type TypeName = (typeof pokemonType.enumValues)[number];
-type SlotName = (typeof abilitySlot.enumValues)[number];
+type TypeName = PokemonType;
+type SlotName = AbilitySlot;
 
-const TYPE_NAMES = new Set<TypeName>(pokemonType.enumValues);
+const TYPE_NAMES = new Set<TypeName>(POKEMON_TYPES);
+void ABILITY_SLOTS; // re-exported for downstream use; not needed locally
 
 function toTypeName(raw: string): TypeName {
   const lower = raw.toLowerCase();
@@ -132,6 +136,18 @@ for (const species of Dex.species.all()) {
   const baseJa = jpNames.species[String(species.num)];
   const nameJa = deriveJa(species.id, baseJa, !!species.isMega);
 
+  // genderRatio in @pkmn/dex: undefined for genderless or single-gender; when
+  // present it's {M: number, F: number} summing to 1. Normalize to GenderRatio
+  // shape, leaving null when truly genderless.
+  let genderRatio: { M: number; F: number } | null = null;
+  if (species.genderRatio) {
+    genderRatio = { M: species.genderRatio.M ?? 0, F: species.genderRatio.F ?? 0 };
+  } else if (species.gender === 'M') {
+    genderRatio = { M: 1, F: 0 };
+  } else if (species.gender === 'F') {
+    genderRatio = { M: 0, F: 1 };
+  } // species.gender === 'N' or undefined → null (genderless)
+
   pokemonRows.push({
     id: species.id,
     nameEn: species.name,
@@ -144,6 +160,25 @@ for (const species of Dex.species.all()) {
     spa: species.baseStats.spa,
     spd: species.baseStats.spd,
     spe: species.baseStats.spe,
+    weightkg: species.weightkg,
+    gen: species.gen,
+    dexNum: species.num,
+    baseSpecies: species.baseSpecies,
+    forme: species.forme || null,
+    prevo: species.prevo || null,
+    evos: species.evos ?? [],
+    otherFormes: species.otherFormes ?? [],
+    // @pkmn/dex's isMega flag misses formes named "M-Mega" / "F-Mega" (e.g.
+    // Meowstic-M-Mega) because it's set only when forme === "Mega". Detect via
+    // suffix as well so gender-split megas register as megas.
+    isMega: !!species.isMega || (species.forme || '').endsWith('Mega'),
+    isPrimal: !!species.isPrimal,
+    eggGroups: species.eggGroups ?? [],
+    genderRatio,
+    tier: species.tier || null,
+    doublesTier: species.doublesTier || null,
+    natDexTier: species.natDexTier || null,
+    tags: species.tags ?? [],
   });
 
   for (const [slotKey, abilityName] of Object.entries(species.abilities)) {
@@ -160,6 +195,8 @@ for (const species of Dex.species.all()) {
         nameEn: ability.name,
         nameJa: jpNames.abilities[ability.id] ?? null,
         description: ability.shortDesc ?? ability.desc ?? null,
+        flags: ability.flags ? Object.keys(ability.flags) : [],
+        descLong: ability.desc ?? null,
       });
     }
 
@@ -171,39 +208,64 @@ for (const species of Dex.species.all()) {
   }
 }
 
-await db
-  .insert(abilities)
-  .values(Array.from(abilityRows.values()))
-  .onConflictDoUpdate({
-    target: abilities.id,
-    set: {
-      nameEn: raw`excluded.name_en`,
-      nameJa: raw`excluded.name_ja`,
-      description: raw`excluded.description`,
-    },
-  });
-await db
-  .insert(pokemon)
-  .values(pokemonRows)
-  .onConflictDoUpdate({
-    target: pokemon.id,
-    set: {
-      nameEn: raw`excluded.name_en`,
-      nameJa: raw`excluded.name_ja`,
-      type1: raw`excluded.type1`,
-      type2: raw`excluded.type2`,
-      hp: raw`excluded.hp`,
-      atk: raw`excluded.atk`,
-      def: raw`excluded.def`,
-      spa: raw`excluded.spa`,
-      spd: raw`excluded.spd`,
-      spe: raw`excluded.spe`,
-    },
-  });
-await db.insert(pokemonAbilities).values(pokemonAbilityRows).onConflictDoNothing();
+const abilityList = Array.from(abilityRows.values());
+for (const slice of chunked(abilityList, chunkSize(6))) {
+  await db
+    .insert(abilities)
+    .values(slice)
+    .onConflictDoUpdate({
+      target: abilities.id,
+      set: {
+        nameEn: raw`excluded.name_en`,
+        nameJa: raw`excluded.name_ja`,
+        description: raw`excluded.description`,
+        flags: raw`excluded.flags`,
+        descLong: raw`excluded.desc_long`,
+      },
+    });
+}
+for (const slice of chunked(pokemonRows, chunkSize(29))) {
+  await db
+    .insert(pokemon)
+    .values(slice)
+    .onConflictDoUpdate({
+      target: pokemon.id,
+      set: {
+        nameEn: raw`excluded.name_en`,
+        nameJa: raw`excluded.name_ja`,
+        type1: raw`excluded.type1`,
+        type2: raw`excluded.type2`,
+        hp: raw`excluded.hp`,
+        atk: raw`excluded.atk`,
+        def: raw`excluded.def`,
+        spa: raw`excluded.spa`,
+        spd: raw`excluded.spd`,
+        spe: raw`excluded.spe`,
+        weightkg: raw`excluded.weightkg`,
+        gen: raw`excluded.gen`,
+        dexNum: raw`excluded.dex_num`,
+        baseSpecies: raw`excluded.base_species`,
+        forme: raw`excluded.forme`,
+        prevo: raw`excluded.prevo`,
+        evos: raw`excluded.evos`,
+        otherFormes: raw`excluded.other_formes`,
+        isMega: raw`excluded.is_mega`,
+        isPrimal: raw`excluded.is_primal`,
+        eggGroups: raw`excluded.egg_groups`,
+        genderRatio: raw`excluded.gender_ratio`,
+        tier: raw`excluded.tier`,
+        doublesTier: raw`excluded.doubles_tier`,
+        natDexTier: raw`excluded.nat_dex_tier`,
+        tags: raw`excluded.tags`,
+      },
+    });
+}
+for (const slice of chunked(pokemonAbilityRows, chunkSize(3))) {
+  await db.insert(pokemonAbilities).values(slice).onConflictDoNothing();
+}
 
 console.log(
   `seeded: ${abilityRows.size} abilities, ${pokemonRows.length} pokemon, ${pokemonAbilityRows.length} pokemon_abilities`,
 );
 
-await sql.end();
+sqlite.close();

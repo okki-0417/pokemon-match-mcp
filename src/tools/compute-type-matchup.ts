@@ -16,19 +16,19 @@ const inputSchema = {
     .string()
     .optional()
     .describe(
-      'Pokemon name or ID. Accepts English, normalized ID, or Japanese (e.g. "Garchomp" / "garchomp" / "ガブリアス"). Use either this or `types`.',
+      'ポケモン名または ID (EN/JP/正規化 ID 受付、例: "Garchomp" / "garchomp" / "ガブリアス")。`types` とどちらか一方を指定。',
     ),
   types: z
     .array(typeEnum)
     .min(1)
     .max(2)
     .optional()
-    .describe('Defending types when querying without a specific Pokemon.'),
+    .describe('特定ポケを指定せず、タイプ組合せだけで相性表を見たい時の防御側タイプ。'),
   ability: z
     .string()
     .optional()
     .describe(
-      'Ability ID (e.g. "levitate"). Applies type-immunity/resistance abilities (Levitate, Flash Fire, Water Absorb, Thick Fat, etc.).',
+      '特性 ID (例: "levitate")。タイプ無効化/半減特性 (ふゆう / もらいび / ちょすい / あついしぼう 等) を相性表に反映する。指定しないと特性無視。',
     ),
 };
 
@@ -38,7 +38,7 @@ export function registerComputeTypeMatchup(server: McpServer): void {
     {
       title: 'compute_type_matchup',
       description:
-        'Compute the defensive type matchup table for a Pokemon or for a given type combination. Returns a per-attacker damage multiplier and bucketed view (x4/x2/x1/x0.5/x0.25/x0).',
+        'ポケモン or タイプ組合せの防御面相性表を計算。各攻撃タイプの倍率 + バケット (×4/×2/×1/×0.5/×0.25/×0) を返す。',
       inputSchema,
     },
     async ({ pokemon: pokemonInput, types, ability }) => {
@@ -49,7 +49,7 @@ export function registerComputeTypeMatchup(server: McpServer): void {
 
       let type1: TypeName;
       let type2: TypeName | null;
-      let resolved: { id: string; name: string } | null = null;
+      let resolved: { id: string; name: string; nameEn: string } | null = null;
 
       if (pokemonInput) {
         const row = await db.query.pokemon.findFirst({
@@ -58,7 +58,7 @@ export function registerComputeTypeMatchup(server: McpServer): void {
         if (!row) throw new Error(`Pokemon not found: "${pokemonInput}"`);
         type1 = row.type1;
         type2 = row.type2;
-        resolved = { id: row.id, name: row.nameEn };
+        resolved = { id: row.id, name: row.nameJa ?? row.nameEn, nameEn: row.nameEn };
       } else {
         type1 = types![0]!;
         type2 = types![1] ?? null;

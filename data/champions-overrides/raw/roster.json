@@ -1,0 +1,3556 @@
+[
+  {
+    "name": "Mega Venusaur",
+    "dexNumber": 3,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Thick Fat"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Venusaur",
+    "dexNumber": 3,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Overgrow",
+      "H": "Chlorophyll"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Charizard",
+    "dexNumber": 6,
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Blaze",
+      "H": "Solar Power"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Charizard X",
+    "dexNumber": 6,
+    "types": [
+      "Fire",
+      "Dragon"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Tough Claws"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Charizard Y",
+    "dexNumber": 6,
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Drought"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Blastoise",
+    "dexNumber": 9,
+    "types": [
+      "Water"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Torrent",
+      "H": "Rain Dish"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Blastoise",
+    "dexNumber": 9,
+    "types": [
+      "Water"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Mega Launcher"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Beedrill",
+    "dexNumber": 15,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Swarm",
+      "H": "Sniper"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Beedrill",
+    "dexNumber": 15,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Adaptability"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Pidgeot",
+    "dexNumber": 18,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "No Guard"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Pidgeot",
+    "dexNumber": 18,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Keen Eye",
+      "1": "Tangled Feet",
+      "H": "Big Pecks"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Arbok",
+    "dexNumber": 24,
+    "types": [
+      "Poison"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Intimidate",
+      "1": "Shed Skin",
+      "H": "Unnerve"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Pikachu",
+    "dexNumber": 25,
+    "types": [
+      "Electric"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Static",
+      "H": "Lightning Rod"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Alolan Raichu",
+    "dexNumber": 26,
+    "types": [
+      "Electric",
+      "Psychic"
+    ],
+    "form": "Regional",
+    "abilities": {
+      "0": "Surge Surfer"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Raichu",
+    "dexNumber": 26,
+    "types": [
+      "Electric"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Static",
+      "H": "Lightning Rod"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Clefable",
+    "dexNumber": 36,
+    "types": [
+      "Fairy"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Cute Charm",
+      "1": "Magic Guard",
+      "H": "Unaware"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Clefable",
+    "dexNumber": 36,
+    "types": [
+      "Fairy",
+      "Flying"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Magic Bounce"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Alolan Ninetales",
+    "dexNumber": 38,
+    "types": [
+      "Ice",
+      "Fairy"
+    ],
+    "form": "Regional",
+    "abilities": {
+      "0": "Snow Cloak",
+      "H": "Snow Warning"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Ninetales",
+    "dexNumber": 38,
+    "types": [
+      "Fire"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Flash Fire",
+      "H": "Drought"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Arcanine",
+    "dexNumber": 59,
+    "types": [
+      "Fire"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Intimidate",
+      "1": "Flash Fire",
+      "H": "Justified"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Hisuian Arcanine",
+    "dexNumber": 59,
+    "types": [
+      "Fire",
+      "Rock"
+    ],
+    "form": "Regional",
+    "abilities": {
+      "0": "Intimidate",
+      "1": "Flash Fire",
+      "H": "Rock Head"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Alakazam",
+    "dexNumber": 65,
+    "types": [
+      "Psychic"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Synchronize",
+      "1": "Inner Focus",
+      "H": "Magic Guard"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Alakazam",
+    "dexNumber": 65,
+    "types": [
+      "Psychic"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Trace"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Machamp",
+    "dexNumber": 68,
+    "types": [
+      "Fighting"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Guts",
+      "1": "No Guard",
+      "H": "Steadfast"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Victreebel",
+    "dexNumber": 71,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Innards Out"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Victreebel",
+    "dexNumber": 71,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Chlorophyll",
+      "H": "Gluttony"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Galarian Slowbro",
+    "dexNumber": 80,
+    "types": [
+      "Poison",
+      "Psychic"
+    ],
+    "form": "Regional",
+    "abilities": {
+      "0": "Quick Draw",
+      "1": "Own Tempo",
+      "H": "Regenerator"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Slowbro",
+    "dexNumber": 80,
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Shell Armor"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Slowbro",
+    "dexNumber": 80,
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Oblivious",
+      "1": "Own Tempo",
+      "H": "Regenerator"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Gengar",
+    "dexNumber": 94,
+    "types": [
+      "Ghost",
+      "Poison"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Cursed Body"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Gengar",
+    "dexNumber": 94,
+    "types": [
+      "Ghost",
+      "Poison"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Shadow Tag"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Kangaskhan",
+    "dexNumber": 115,
+    "types": [
+      "Normal"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Early Bird",
+      "1": "Scrappy",
+      "H": "Inner Focus"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Kangaskhan",
+    "dexNumber": 115,
+    "types": [
+      "Normal"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Parental Bond"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Starmie",
+    "dexNumber": 121,
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Huge Power"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Starmie",
+    "dexNumber": 121,
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Illuminate",
+      "1": "Natural Cure",
+      "H": "Analytic"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Pinsir",
+    "dexNumber": 127,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Aerilate"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Pinsir",
+    "dexNumber": 127,
+    "types": [
+      "Bug"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Hyper Cutter",
+      "1": "Mold Breaker",
+      "H": "Moxie"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Paldean Tauros",
+    "dexNumber": 128,
+    "types": [
+      "Fighting"
+    ],
+    "form": "Regional",
+    "abilities": {
+      "0": "Intimidate",
+      "1": "Anger Point",
+      "H": "Cud Chew"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Tauros",
+    "dexNumber": 128,
+    "types": [
+      "Normal"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Intimidate",
+      "1": "Anger Point",
+      "H": "Sheer Force"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Gyarados",
+    "dexNumber": 130,
+    "types": [
+      "Water",
+      "Flying"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Intimidate",
+      "H": "Moxie"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Gyarados",
+    "dexNumber": 130,
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Mold Breaker"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Ditto",
+    "dexNumber": 132,
+    "types": [
+      "Normal"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Limber",
+      "H": "Imposter"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Vaporeon",
+    "dexNumber": 134,
+    "types": [
+      "Water"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Water Absorb",
+      "H": "Hydration"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Jolteon",
+    "dexNumber": 135,
+    "types": [
+      "Electric"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Volt Absorb",
+      "H": "Quick Feet"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Flareon",
+    "dexNumber": 136,
+    "types": [
+      "Fire"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Flash Fire",
+      "H": "Guts"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Aerodactyl",
+    "dexNumber": 142,
+    "types": [
+      "Rock",
+      "Flying"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Rock Head",
+      "1": "Pressure",
+      "H": "Unnerve"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Aerodactyl",
+    "dexNumber": 142,
+    "types": [
+      "Rock",
+      "Flying"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Tough Claws"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Snorlax",
+    "dexNumber": 143,
+    "types": [
+      "Normal"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Immunity",
+      "1": "Thick Fat",
+      "H": "Gluttony"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Dragonite",
+    "dexNumber": 149,
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Inner Focus",
+      "H": "Multiscale"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Dragonite",
+    "dexNumber": 149,
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Multiscale"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Meganium",
+    "dexNumber": 154,
+    "types": [
+      "Grass",
+      "Fairy"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Mega Sol"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Meganium",
+    "dexNumber": 154,
+    "types": [
+      "Grass"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Overgrow",
+      "H": "Leaf Guard"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Hisuian Typhlosion",
+    "dexNumber": 157,
+    "types": [
+      "Fire",
+      "Ghost"
+    ],
+    "form": "Regional",
+    "abilities": {
+      "0": "Blaze",
+      "H": "Frisk"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Typhlosion",
+    "dexNumber": 157,
+    "types": [
+      "Fire"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Blaze",
+      "H": "Flash Fire"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Feraligatr",
+    "dexNumber": 160,
+    "types": [
+      "Water"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Torrent",
+      "H": "Sheer Force"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Feraligatr",
+    "dexNumber": 160,
+    "types": [
+      "Water",
+      "Dragon"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Dragonize"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Ariados",
+    "dexNumber": 168,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Swarm",
+      "1": "Insomnia",
+      "H": "Sniper"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Ampharos",
+    "dexNumber": 181,
+    "types": [
+      "Electric"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Static",
+      "H": "Plus"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Ampharos",
+    "dexNumber": 181,
+    "types": [
+      "Electric",
+      "Dragon"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Mold Breaker"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Azumarill",
+    "dexNumber": 184,
+    "types": [
+      "Water",
+      "Fairy"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Thick Fat",
+      "1": "Huge Power",
+      "H": "Sap Sipper"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Politoed",
+    "dexNumber": 186,
+    "types": [
+      "Water"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Water Absorb",
+      "1": "Damp",
+      "H": "Drizzle"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Espeon",
+    "dexNumber": 196,
+    "types": [
+      "Psychic"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Synchronize",
+      "H": "Magic Bounce"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Umbreon",
+    "dexNumber": 197,
+    "types": [
+      "Dark"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Synchronize",
+      "H": "Inner Focus"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Galarian Slowking",
+    "dexNumber": 199,
+    "types": [
+      "Poison",
+      "Psychic"
+    ],
+    "form": "Regional",
+    "abilities": {
+      "0": "Curious Medicine",
+      "1": "Own Tempo",
+      "H": "Regenerator"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Slowking",
+    "dexNumber": 199,
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Oblivious",
+      "1": "Own Tempo",
+      "H": "Regenerator"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Forretress",
+    "dexNumber": 205,
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Sturdy",
+      "H": "Overcoat"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Steelix",
+    "dexNumber": 208,
+    "types": [
+      "Steel",
+      "Ground"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Sand Force"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Steelix",
+    "dexNumber": 208,
+    "types": [
+      "Steel",
+      "Ground"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Rock Head",
+      "1": "Sturdy",
+      "H": "Sheer Force"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Scizor",
+    "dexNumber": 212,
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Technician"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Scizor",
+    "dexNumber": 212,
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Swarm",
+      "1": "Technician",
+      "H": "Light Metal"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Heracross",
+    "dexNumber": 214,
+    "types": [
+      "Bug",
+      "Fighting"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Swarm",
+      "1": "Guts",
+      "H": "Moxie"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Heracross",
+    "dexNumber": 214,
+    "types": [
+      "Bug",
+      "Fighting"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Skill Link"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Skarmory",
+    "dexNumber": 227,
+    "types": [
+      "Steel",
+      "Flying"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Stalwart"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Skarmory",
+    "dexNumber": 227,
+    "types": [
+      "Steel",
+      "Flying"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Keen Eye",
+      "1": "Sturdy",
+      "H": "Weak Armor"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Houndoom",
+    "dexNumber": 229,
+    "types": [
+      "Dark",
+      "Fire"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Early Bird",
+      "1": "Flash Fire",
+      "H": "Unnerve"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Houndoom",
+    "dexNumber": 229,
+    "types": [
+      "Dark",
+      "Fire"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Solar Power"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Tyranitar",
+    "dexNumber": 248,
+    "types": [
+      "Rock",
+      "Dark"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Sand Stream"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Tyranitar",
+    "dexNumber": 248,
+    "types": [
+      "Rock",
+      "Dark"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Sand Stream",
+      "H": "Unnerve"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Pelipper",
+    "dexNumber": 279,
+    "types": [
+      "Water",
+      "Flying"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Keen Eye",
+      "1": "Drizzle",
+      "H": "Rain Dish"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Gardevoir",
+    "dexNumber": 282,
+    "types": [
+      "Psychic",
+      "Fairy"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Synchronize",
+      "1": "Trace",
+      "H": "Telepathy"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Gardevoir",
+    "dexNumber": 282,
+    "types": [
+      "Psychic",
+      "Fairy"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Pixilate"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Sableye",
+    "dexNumber": 302,
+    "types": [
+      "Dark",
+      "Ghost"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Magic Bounce"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Sableye",
+    "dexNumber": 302,
+    "types": [
+      "Dark",
+      "Ghost"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Keen Eye",
+      "1": "Stall",
+      "H": "Prankster"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Aggron",
+    "dexNumber": 306,
+    "types": [
+      "Steel",
+      "Rock"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Sturdy",
+      "1": "Rock Head",
+      "H": "Heavy Metal"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Aggron",
+    "dexNumber": 306,
+    "types": [
+      "Steel"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Filter"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Medicham",
+    "dexNumber": 308,
+    "types": [
+      "Fighting",
+      "Psychic"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Pure Power",
+      "H": "Telepathy"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Medicham",
+    "dexNumber": 308,
+    "types": [
+      "Fighting",
+      "Psychic"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Pure Power"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Manectric",
+    "dexNumber": 310,
+    "types": [
+      "Electric"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Static",
+      "1": "Lightning Rod",
+      "H": "Minus"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Manectric",
+    "dexNumber": 310,
+    "types": [
+      "Electric"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Intimidate"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Sharpedo",
+    "dexNumber": 319,
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Strong Jaw"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Sharpedo",
+    "dexNumber": 319,
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Rough Skin",
+      "H": "Speed Boost"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Camerupt",
+    "dexNumber": 323,
+    "types": [
+      "Fire",
+      "Ground"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Magma Armor",
+      "1": "Solid Rock",
+      "H": "Anger Point"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Camerupt",
+    "dexNumber": 323,
+    "types": [
+      "Fire",
+      "Ground"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Sheer Force"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Torkoal",
+    "dexNumber": 324,
+    "types": [
+      "Fire"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "White Smoke",
+      "1": "Drought",
+      "H": "Shell Armor"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Altaria",
+    "dexNumber": 334,
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Natural Cure",
+      "H": "Cloud Nine"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Altaria",
+    "dexNumber": 334,
+    "types": [
+      "Dragon",
+      "Fairy"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Pixilate"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Milotic",
+    "dexNumber": 350,
+    "types": [
+      "Water"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Marvel Scale",
+      "1": "Competitive",
+      "H": "Cute Charm"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Castform",
+    "dexNumber": 351,
+    "types": [
+      "Normal"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Forecast"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Banette",
+    "dexNumber": 354,
+    "types": [
+      "Ghost"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Insomnia",
+      "1": "Frisk",
+      "H": "Cursed Body"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Banette",
+    "dexNumber": 354,
+    "types": [
+      "Ghost"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Prankster"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Chimecho",
+    "dexNumber": 358,
+    "types": [
+      "Psychic"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Levitate"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Chimecho",
+    "dexNumber": 358,
+    "types": [
+      "Psychic",
+      "Steel"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Levitate"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Absol",
+    "dexNumber": 359,
+    "types": [
+      "Dark"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Pressure",
+      "1": "Super Luck",
+      "H": "Justified"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Absol",
+    "dexNumber": 359,
+    "types": [
+      "Dark"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Magic Bounce"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Glalie",
+    "dexNumber": 362,
+    "types": [
+      "Ice"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Inner Focus",
+      "1": "Ice Body",
+      "H": "Moody"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Glalie",
+    "dexNumber": 362,
+    "types": [
+      "Ice"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Refrigerate"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Torterra",
+    "dexNumber": 389,
+    "types": [
+      "Grass",
+      "Ground"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Overgrow",
+      "H": "Shell Armor"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Infernape",
+    "dexNumber": 392,
+    "types": [
+      "Fire",
+      "Fighting"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Blaze",
+      "H": "Iron Fist"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Empoleon",
+    "dexNumber": 395,
+    "types": [
+      "Water",
+      "Steel"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Torrent",
+      "H": "Competitive"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Luxray",
+    "dexNumber": 405,
+    "types": [
+      "Electric"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Rivalry",
+      "1": "Intimidate",
+      "H": "Guts"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Roserade",
+    "dexNumber": 407,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Natural Cure",
+      "1": "Poison Point",
+      "H": "Technician"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Rampardos",
+    "dexNumber": 409,
+    "types": [
+      "Rock"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Mold Breaker",
+      "H": "Sheer Force"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Bastiodon",
+    "dexNumber": 411,
+    "types": [
+      "Rock",
+      "Steel"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Sturdy",
+      "H": "Soundproof"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Lopunny",
+    "dexNumber": 428,
+    "types": [
+      "Normal"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Cute Charm",
+      "1": "Klutz",
+      "H": "Limber"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Lopunny",
+    "dexNumber": 428,
+    "types": [
+      "Normal",
+      "Fighting"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Scrappy"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Spiritomb",
+    "dexNumber": 442,
+    "types": [
+      "Ghost",
+      "Dark"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Pressure",
+      "H": "Infiltrator"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Garchomp",
+    "dexNumber": 445,
+    "types": [
+      "Dragon",
+      "Ground"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Sand Veil",
+      "H": "Rough Skin"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Garchomp",
+    "dexNumber": 445,
+    "types": [
+      "Dragon",
+      "Ground"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Sand Force"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Lucario",
+    "dexNumber": 448,
+    "types": [
+      "Fighting",
+      "Steel"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Steadfast",
+      "1": "Inner Focus",
+      "H": "Justified"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Lucario",
+    "dexNumber": 448,
+    "types": [
+      "Fighting",
+      "Steel"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Adaptability"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Hippowdon",
+    "dexNumber": 450,
+    "types": [
+      "Ground"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Sand Stream",
+      "H": "Sand Force"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Toxicroak",
+    "dexNumber": 454,
+    "types": [
+      "Poison",
+      "Fighting"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Anticipation",
+      "1": "Dry Skin",
+      "H": "Poison Touch"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Abomasnow",
+    "dexNumber": 460,
+    "types": [
+      "Grass",
+      "Ice"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Snow Warning",
+      "H": "Soundproof"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Abomasnow",
+    "dexNumber": 460,
+    "types": [
+      "Grass",
+      "Ice"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Snow Warning"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Weavile",
+    "dexNumber": 461,
+    "types": [
+      "Dark",
+      "Ice"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Pressure",
+      "H": "Pickpocket"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Rhyperior",
+    "dexNumber": 464,
+    "types": [
+      "Ground",
+      "Rock"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Lightning Rod",
+      "1": "Solid Rock",
+      "H": "Reckless"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Leafeon",
+    "dexNumber": 470,
+    "types": [
+      "Grass"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Leaf Guard",
+      "H": "Chlorophyll"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Glaceon",
+    "dexNumber": 471,
+    "types": [
+      "Ice"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Snow Cloak",
+      "H": "Ice Body"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Gliscor",
+    "dexNumber": 472,
+    "types": [
+      "Ground",
+      "Flying"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Hyper Cutter",
+      "1": "Sand Veil",
+      "H": "Poison Heal"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mamoswine",
+    "dexNumber": 473,
+    "types": [
+      "Ice",
+      "Ground"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Oblivious",
+      "1": "Snow Cloak",
+      "H": "Thick Fat"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Gallade",
+    "dexNumber": 475,
+    "types": [
+      "Psychic",
+      "Fighting"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Steadfast",
+      "1": "Sharpness",
+      "H": "Justified"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Gallade",
+    "dexNumber": 475,
+    "types": [
+      "Psychic",
+      "Fighting"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Inner Focus"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Froslass",
+    "dexNumber": 478,
+    "types": [
+      "Ice",
+      "Ghost"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Snow Cloak",
+      "H": "Cursed Body"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Froslass",
+    "dexNumber": 478,
+    "types": [
+      "Ice",
+      "Ghost"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Snow Warning"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Rotom",
+    "dexNumber": 479,
+    "types": [
+      "Electric",
+      "Ghost"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Levitate"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Serperior",
+    "dexNumber": 497,
+    "types": [
+      "Grass"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Overgrow",
+      "H": "Contrary"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Emboar",
+    "dexNumber": 500,
+    "types": [
+      "Fire",
+      "Fighting"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Blaze",
+      "H": "Reckless"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Emboar",
+    "dexNumber": 500,
+    "types": [
+      "Fire",
+      "Fighting"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Mold Breaker"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Hisuian Samurott",
+    "dexNumber": 503,
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "form": "Regional",
+    "abilities": {
+      "0": "Torrent",
+      "H": "Sharpness"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Samurott",
+    "dexNumber": 503,
+    "types": [
+      "Water"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Torrent",
+      "H": "Shell Armor"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Watchog",
+    "dexNumber": 505,
+    "types": [
+      "Normal"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Illuminate",
+      "1": "Keen Eye",
+      "H": "Analytic"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Liepard",
+    "dexNumber": 510,
+    "types": [
+      "Dark"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Limber",
+      "1": "Unburden",
+      "H": "Prankster"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Simisage",
+    "dexNumber": 512,
+    "types": [
+      "Grass"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Gluttony",
+      "H": "Overgrow"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Simisear",
+    "dexNumber": 514,
+    "types": [
+      "Fire"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Gluttony",
+      "H": "Blaze"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Simipour",
+    "dexNumber": 516,
+    "types": [
+      "Water"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Gluttony",
+      "H": "Torrent"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Excadrill",
+    "dexNumber": 530,
+    "types": [
+      "Ground",
+      "Steel"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Sand Rush",
+      "1": "Sand Force",
+      "H": "Mold Breaker"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Excadrill",
+    "dexNumber": 530,
+    "types": [
+      "Ground",
+      "Steel"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Piercing Drill"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Audino",
+    "dexNumber": 531,
+    "types": [
+      "Normal"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Healer",
+      "1": "Regenerator",
+      "H": "Klutz"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Audino",
+    "dexNumber": 531,
+    "types": [
+      "Normal",
+      "Fairy"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Healer"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Conkeldurr",
+    "dexNumber": 534,
+    "types": [
+      "Fighting"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Guts",
+      "1": "Sheer Force",
+      "H": "Iron Fist"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Whimsicott",
+    "dexNumber": 547,
+    "types": [
+      "Grass",
+      "Fairy"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Prankster",
+      "1": "Infiltrator",
+      "H": "Chlorophyll"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Krookodile",
+    "dexNumber": 553,
+    "types": [
+      "Ground",
+      "Dark"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Intimidate",
+      "1": "Moxie",
+      "H": "Anger Point"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Cofagrigus",
+    "dexNumber": 563,
+    "types": [
+      "Ghost"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Mummy"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Garbodor",
+    "dexNumber": 569,
+    "types": [
+      "Poison"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Stench",
+      "1": "Weak Armor",
+      "H": "Aftermath"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Hisuian Zoroark",
+    "dexNumber": 571,
+    "types": [
+      "Normal",
+      "Ghost"
+    ],
+    "form": "Regional",
+    "abilities": {
+      "0": "Illusion"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Zoroark",
+    "dexNumber": 571,
+    "types": [
+      "Dark"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Illusion"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Reuniclus",
+    "dexNumber": 579,
+    "types": [
+      "Psychic"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Overcoat",
+      "1": "Magic Guard",
+      "H": "Regenerator"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Vanilluxe",
+    "dexNumber": 584,
+    "types": [
+      "Ice"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Ice Body",
+      "1": "Snow Warning",
+      "H": "Weak Armor"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Emolga",
+    "dexNumber": 587,
+    "types": [
+      "Electric",
+      "Flying"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Static",
+      "H": "Motor Drive"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Chandelure",
+    "dexNumber": 609,
+    "types": [
+      "Ghost",
+      "Fire"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Flash Fire",
+      "1": "Flame Body",
+      "H": "Infiltrator"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Chandelure",
+    "dexNumber": 609,
+    "types": [
+      "Ghost",
+      "Fire"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Infiltrator"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Beartic",
+    "dexNumber": 614,
+    "types": [
+      "Ice"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Snow Cloak",
+      "1": "Slush Rush",
+      "H": "Swift Swim"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Galarian Stunfisk",
+    "dexNumber": 618,
+    "types": [
+      "Ground",
+      "Steel"
+    ],
+    "form": "Regional",
+    "abilities": {
+      "0": "Mimicry"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Stunfisk",
+    "dexNumber": 618,
+    "types": [
+      "Ground",
+      "Electric"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Static",
+      "1": "Limber",
+      "H": "Sand Veil"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Golurk",
+    "dexNumber": 623,
+    "types": [
+      "Ground",
+      "Ghost"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Iron Fist",
+      "1": "Klutz",
+      "H": "No Guard"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Golurk",
+    "dexNumber": 623,
+    "types": [
+      "Ground",
+      "Ghost"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Unseen Fist"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Hydreigon",
+    "dexNumber": 635,
+    "types": [
+      "Dark",
+      "Dragon"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Levitate"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Volcarona",
+    "dexNumber": 637,
+    "types": [
+      "Bug",
+      "Fire"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Flame Body",
+      "H": "Swarm"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Chesnaught",
+    "dexNumber": 652,
+    "types": [
+      "Grass",
+      "Fighting"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Overgrow",
+      "H": "Bulletproof"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Chesnaught",
+    "dexNumber": 652,
+    "types": [
+      "Grass",
+      "Fighting"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Bulletproof"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Delphox",
+    "dexNumber": 655,
+    "types": [
+      "Fire",
+      "Psychic"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Blaze",
+      "H": "Magician"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Delphox",
+    "dexNumber": 655,
+    "types": [
+      "Fire",
+      "Psychic"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Levitate"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Greninja",
+    "dexNumber": 658,
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Torrent",
+      "H": "Protean",
+      "S": "Battle Bond"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Greninja",
+    "dexNumber": 658,
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Protean"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Diggersby",
+    "dexNumber": 660,
+    "types": [
+      "Normal",
+      "Ground"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Pickup",
+      "1": "Cheek Pouch",
+      "H": "Huge Power"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Talonflame",
+    "dexNumber": 663,
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Flame Body",
+      "H": "Gale Wings"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Vivillon",
+    "dexNumber": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Shield Dust",
+      "1": "Compound Eyes",
+      "H": "Friend Guard"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Floette",
+    "dexNumber": 670,
+    "types": [
+      "Fairy"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Flower Veil",
+      "H": "Symbiosis"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Floette",
+    "dexNumber": 670,
+    "types": [
+      "Fairy"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Fairy Aura"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Florges",
+    "dexNumber": 671,
+    "types": [
+      "Fairy"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Flower Veil",
+      "H": "Symbiosis"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Pangoro",
+    "dexNumber": 675,
+    "types": [
+      "Fighting",
+      "Dark"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Iron Fist",
+      "1": "Mold Breaker",
+      "H": "Scrappy"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Furfrou",
+    "dexNumber": 676,
+    "types": [
+      "Normal"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Fur Coat"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Meowstic",
+    "dexNumber": 678,
+    "types": [
+      "Psychic"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Trace"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Meowstic",
+    "dexNumber": 678,
+    "types": [
+      "Psychic"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Keen Eye",
+      "1": "Infiltrator",
+      "H": "Prankster"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Aegislash",
+    "dexNumber": 681,
+    "types": [
+      "Steel",
+      "Ghost"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Stance Change"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Aromatisse",
+    "dexNumber": 683,
+    "types": [
+      "Fairy"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Healer",
+      "H": "Aroma Veil"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Slurpuff",
+    "dexNumber": 685,
+    "types": [
+      "Fairy"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Sweet Veil",
+      "H": "Unburden"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Clawitzer",
+    "dexNumber": 693,
+    "types": [
+      "Water"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Mega Launcher"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Heliolisk",
+    "dexNumber": 695,
+    "types": [
+      "Electric",
+      "Normal"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Dry Skin",
+      "1": "Sand Veil",
+      "H": "Solar Power"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Tyrantrum",
+    "dexNumber": 697,
+    "types": [
+      "Rock",
+      "Dragon"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Strong Jaw",
+      "H": "Rock Head"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Aurorus",
+    "dexNumber": 699,
+    "types": [
+      "Rock",
+      "Ice"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Refrigerate",
+      "H": "Snow Warning"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Sylveon",
+    "dexNumber": 700,
+    "types": [
+      "Fairy"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Cute Charm",
+      "H": "Pixilate"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Hawlucha",
+    "dexNumber": 701,
+    "types": [
+      "Fighting",
+      "Flying"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Limber",
+      "1": "Unburden",
+      "H": "Mold Breaker"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Hawlucha",
+    "dexNumber": 701,
+    "types": [
+      "Fighting",
+      "Flying"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "No Guard"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Dedenne",
+    "dexNumber": 702,
+    "types": [
+      "Electric",
+      "Fairy"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Cheek Pouch",
+      "1": "Pickup",
+      "H": "Plus"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Goodra",
+    "dexNumber": 706,
+    "types": [
+      "Dragon"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Sap Sipper",
+      "1": "Hydration",
+      "H": "Gooey"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Hisuian Goodra",
+    "dexNumber": 706,
+    "types": [
+      "Steel",
+      "Dragon"
+    ],
+    "form": "Regional",
+    "abilities": {
+      "0": "Sap Sipper",
+      "1": "Shell Armor",
+      "H": "Gooey"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Klefki",
+    "dexNumber": 707,
+    "types": [
+      "Steel",
+      "Fairy"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Prankster",
+      "H": "Magician"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Trevenant",
+    "dexNumber": 709,
+    "types": [
+      "Ghost",
+      "Grass"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Natural Cure",
+      "1": "Frisk",
+      "H": "Harvest"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Gourgeist",
+    "dexNumber": 711,
+    "types": [
+      "Ghost",
+      "Grass"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Pickup",
+      "1": "Frisk",
+      "H": "Insomnia"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Avalugg",
+    "dexNumber": 713,
+    "types": [
+      "Ice"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Own Tempo",
+      "1": "Ice Body",
+      "H": "Sturdy"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Hisuian Avalugg",
+    "dexNumber": 713,
+    "types": [
+      "Ice",
+      "Rock"
+    ],
+    "form": "Regional",
+    "abilities": {
+      "0": "Strong Jaw",
+      "1": "Ice Body",
+      "H": "Sturdy"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Noivern",
+    "dexNumber": 715,
+    "types": [
+      "Flying",
+      "Dragon"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Frisk",
+      "1": "Infiltrator",
+      "H": "Telepathy"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Decidueye",
+    "dexNumber": 724,
+    "types": [
+      "Grass",
+      "Ghost"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Overgrow",
+      "H": "Long Reach"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Hisuian Decidueye",
+    "dexNumber": 724,
+    "types": [
+      "Grass",
+      "Fighting"
+    ],
+    "form": "Regional",
+    "abilities": {
+      "0": "Overgrow",
+      "H": "Scrappy"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Incineroar",
+    "dexNumber": 727,
+    "types": [
+      "Fire",
+      "Dark"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Blaze",
+      "H": "Intimidate"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Primarina",
+    "dexNumber": 730,
+    "types": [
+      "Water",
+      "Fairy"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Torrent",
+      "H": "Liquid Voice"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Toucannon",
+    "dexNumber": 733,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Keen Eye",
+      "1": "Skill Link",
+      "H": "Sheer Force"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Crabominable",
+    "dexNumber": 740,
+    "types": [
+      "Fighting",
+      "Ice"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Hyper Cutter",
+      "1": "Iron Fist",
+      "H": "Anger Point"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Crabominable",
+    "dexNumber": 740,
+    "types": [
+      "Fighting",
+      "Ice"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Iron Fist"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Lycanroc",
+    "dexNumber": 745,
+    "types": [
+      "Rock"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Keen Eye",
+      "1": "Sand Rush",
+      "H": "Steadfast"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Toxapex",
+    "dexNumber": 748,
+    "types": [
+      "Poison",
+      "Water"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Merciless",
+      "1": "Limber",
+      "H": "Regenerator"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mudsdale",
+    "dexNumber": 750,
+    "types": [
+      "Ground"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Own Tempo",
+      "1": "Stamina",
+      "H": "Inner Focus"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Araquanid",
+    "dexNumber": 752,
+    "types": [
+      "Water",
+      "Bug"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Water Bubble",
+      "H": "Water Absorb"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Salazzle",
+    "dexNumber": 758,
+    "types": [
+      "Poison",
+      "Fire"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Corrosion",
+      "H": "Oblivious"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Tsareena",
+    "dexNumber": 763,
+    "types": [
+      "Grass"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Leaf Guard",
+      "1": "Queenly Majesty",
+      "H": "Sweet Veil"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Oranguru",
+    "dexNumber": 765,
+    "types": [
+      "Normal",
+      "Psychic"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Inner Focus",
+      "1": "Telepathy",
+      "H": "Symbiosis"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Passimian",
+    "dexNumber": 766,
+    "types": [
+      "Fighting"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Receiver",
+      "H": "Defiant"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mimikyu",
+    "dexNumber": 778,
+    "types": [
+      "Ghost",
+      "Fairy"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Disguise"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Drampa",
+    "dexNumber": 780,
+    "types": [
+      "Normal",
+      "Dragon"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Berserk",
+      "1": "Sap Sipper",
+      "H": "Cloud Nine"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Drampa",
+    "dexNumber": 780,
+    "types": [
+      "Normal",
+      "Dragon"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Berserk"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Kommo-o",
+    "dexNumber": 784,
+    "types": [
+      "Dragon",
+      "Fighting"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Bulletproof",
+      "1": "Soundproof",
+      "H": "Overcoat"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Corviknight",
+    "dexNumber": 823,
+    "types": [
+      "Flying",
+      "Steel"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Pressure",
+      "1": "Unnerve",
+      "H": "Mirror Armor"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Flapple",
+    "dexNumber": 841,
+    "types": [
+      "Grass",
+      "Dragon"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Ripen",
+      "1": "Gluttony",
+      "H": "Hustle"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Appletun",
+    "dexNumber": 842,
+    "types": [
+      "Grass",
+      "Dragon"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Ripen",
+      "1": "Gluttony",
+      "H": "Thick Fat"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Sandaconda",
+    "dexNumber": 844,
+    "types": [
+      "Ground"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Sand Spit",
+      "1": "Shed Skin",
+      "H": "Sand Veil"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Polteageist",
+    "dexNumber": 855,
+    "types": [
+      "Ghost"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Weak Armor",
+      "H": "Cursed Body"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Hatterene",
+    "dexNumber": 858,
+    "types": [
+      "Psychic",
+      "Fairy"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Healer",
+      "1": "Anticipation",
+      "H": "Magic Bounce"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mr. Rime",
+    "dexNumber": 866,
+    "types": [
+      "Ice",
+      "Psychic"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Tangled Feet",
+      "1": "Screen Cleaner",
+      "H": "Ice Body"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Runerigus",
+    "dexNumber": 867,
+    "types": [
+      "Ground",
+      "Ghost"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Wandering Spirit"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Alcremie",
+    "dexNumber": 869,
+    "types": [
+      "Fairy"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Sweet Veil",
+      "H": "Aroma Veil"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Morpeko",
+    "dexNumber": 877,
+    "types": [
+      "Electric",
+      "Dark"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Hunger Switch"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Dragapult",
+    "dexNumber": 887,
+    "types": [
+      "Dragon",
+      "Ghost"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Clear Body",
+      "1": "Infiltrator",
+      "H": "Cursed Body"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Wyrdeer",
+    "dexNumber": 899,
+    "types": [
+      "Normal",
+      "Psychic"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Intimidate",
+      "1": "Frisk",
+      "H": "Sap Sipper"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Kleavor",
+    "dexNumber": 900,
+    "types": [
+      "Bug",
+      "Rock"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Swarm",
+      "1": "Sheer Force",
+      "H": "Sharpness"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Basculegion",
+    "dexNumber": 902,
+    "types": [
+      "Water",
+      "Ghost"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Swift Swim",
+      "1": "Adaptability",
+      "H": "Mold Breaker"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Sneasler",
+    "dexNumber": 903,
+    "types": [
+      "Fighting",
+      "Poison"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Pressure",
+      "1": "Unburden",
+      "H": "Poison Touch"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Meowscarada",
+    "dexNumber": 908,
+    "types": [
+      "Grass",
+      "Dark"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Overgrow",
+      "H": "Protean"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Skeledirge",
+    "dexNumber": 911,
+    "types": [
+      "Fire",
+      "Ghost"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Blaze",
+      "H": "Unaware"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Quaquaval",
+    "dexNumber": 914,
+    "types": [
+      "Water",
+      "Fighting"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Torrent",
+      "H": "Moxie"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Maushold",
+    "dexNumber": 925,
+    "types": [
+      "Normal"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Friend Guard",
+      "1": "Cheek Pouch",
+      "H": "Technician"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Garganacl",
+    "dexNumber": 934,
+    "types": [
+      "Rock"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Purifying Salt",
+      "1": "Sturdy",
+      "H": "Clear Body"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Armarouge",
+    "dexNumber": 936,
+    "types": [
+      "Fire",
+      "Psychic"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Flash Fire",
+      "H": "Weak Armor"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Ceruledge",
+    "dexNumber": 937,
+    "types": [
+      "Fire",
+      "Ghost"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Flash Fire",
+      "H": "Weak Armor"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Bellibolt",
+    "dexNumber": 939,
+    "types": [
+      "Electric"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Electromorphosis",
+      "1": "Static",
+      "H": "Damp"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Scovillain",
+    "dexNumber": 952,
+    "types": [
+      "Grass",
+      "Fire"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Spicy Spray"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Scovillain",
+    "dexNumber": 952,
+    "types": [
+      "Grass",
+      "Fire"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Chlorophyll",
+      "1": "Insomnia",
+      "H": "Moody"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Espathra",
+    "dexNumber": 956,
+    "types": [
+      "Psychic"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Opportunist",
+      "1": "Frisk",
+      "H": "Speed Boost"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Tinkaton",
+    "dexNumber": 959,
+    "types": [
+      "Fairy",
+      "Steel"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Mold Breaker",
+      "1": "Own Tempo",
+      "H": "Pickpocket"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Palafin",
+    "dexNumber": 964,
+    "types": [
+      "Water"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Zero to Hero"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Orthworm",
+    "dexNumber": 968,
+    "types": [
+      "Steel"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Earth Eater",
+      "H": "Sand Veil"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Glimmora",
+    "dexNumber": 970,
+    "types": [
+      "Rock",
+      "Poison"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Toxic Debris",
+      "H": "Corrosion"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Mega Glimmora",
+    "dexNumber": 970,
+    "types": [
+      "Rock",
+      "Poison"
+    ],
+    "form": "Mega",
+    "abilities": {
+      "0": "Adaptability"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Farigiraf",
+    "dexNumber": 981,
+    "types": [
+      "Normal",
+      "Psychic"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Cud Chew",
+      "1": "Armor Tail",
+      "H": "Sap Sipper"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Kingambit",
+    "dexNumber": 983,
+    "types": [
+      "Dark",
+      "Steel"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Defiant",
+      "1": "Supreme Overlord",
+      "H": "Pressure"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Sinistcha",
+    "dexNumber": 1013,
+    "types": [
+      "Grass",
+      "Ghost"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Hospitality",
+      "H": "Heatproof"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Archaludon",
+    "dexNumber": 1018,
+    "types": [
+      "Steel",
+      "Dragon"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Stamina",
+      "1": "Sturdy",
+      "H": "Stalwart"
+    },
+    "championsVerified": true
+  },
+  {
+    "name": "Hydrapple",
+    "dexNumber": 1019,
+    "types": [
+      "Grass",
+      "Dragon"
+    ],
+    "form": "Base",
+    "abilities": {
+      "0": "Supersweet Syrup",
+      "1": "Regenerator",
+      "H": "Sticky Hold"
+    },
+    "championsVerified": true
+  }
+]

@@ -2,7 +2,13 @@ import { z } from 'zod';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { calculate, Generations, Pokemon, Move, Field } from '@smogon/calc';
 import { db } from '../db/client.js';
-import { pokemonLookup } from '../db/lookup.js';
+import {
+  abilityLookup,
+  itemLookup,
+  moveLookup,
+  natureLookup,
+  pokemonLookup,
+} from '../db/lookup.js';
 import { TYPE_NAMES, type TypeName } from '../domain/type-chart.js';
 
 const gen = Generations.get(9);
@@ -57,44 +63,45 @@ const sideSchema = z.object({
   pokemon: z
     .string()
     .min(1)
-    .describe('Pokemon name. Accepts EN/JP/ID (e.g. "Garchomp" / "ガブリアス" / "garchomp").'),
-  level: z.number().int().min(1).max(100).default(50),
-  nature: z.string().optional().describe('Nature name in English (e.g. "Adamant").'),
-  ability: z.string().optional().describe('Ability name in English (e.g. "Rough Skin").'),
-  item: z.string().optional().describe('Held item in English (e.g. "Choice Band").'),
+    .describe('ポケモン名 (EN/JP/ID 受付、例: "ガブリアス" / "Garchomp" / "garchomp")。'),
+  level: z.number().int().min(1).max(100).default(50).describe('レベル。デフォルト 50 (VGC 公式)。'),
+  nature: z.string().optional().describe('性格 (EN/JP/ID、例: "いじっぱり" / "Adamant")。'),
+  ability: z.string().optional().describe('特性 (EN/JP/ID、例: "さめはだ" / "Rough Skin")。'),
+  item: z.string().optional().describe('持ち物 (EN/JP/ID、例: "こだわりハチマキ" / "Choice Band")。'),
   evs: statSpread,
   ivs: ivSpread,
   boosts: boostSpread,
   status: z
     .enum(['', 'brn', 'par', 'psn', 'tox', 'slp', 'frz'])
     .optional()
-    .describe('Status condition. Empty string or omit for none.'),
+    .describe('状態異常 (brn=やけど / par=まひ / psn=どく / tox=もうどく / slp=ねむり / frz=こおり)。無しなら省略 or 空文字。'),
   teraType: typeEnum
     .optional()
-    .describe('If set, the Pokemon is treated as Terastallized to this type.'),
+    .describe('指定するとそのタイプにテラスタル済として扱う。Champions ではテラスタル無しのため通常未使用。'),
 });
 
 const moveSchema = z.object({
-  name: z.string().min(1).describe('Move name in English (e.g. "Earthquake").'),
-  isCrit: z.boolean().optional(),
+  name: z.string().min(1).describe('技名 (EN/JP/ID、例: "じしん" / "Earthquake" / "earthquake")。'),
+  isCrit: z.boolean().optional().describe('急所固定 (true で急所計算)。'),
   hits: z
     .number()
     .int()
     .min(1)
     .max(10)
     .optional()
-    .describe('Number of hits for multi-hit moves (e.g. Bullet Seed).'),
+    .describe('連続技 (タネマシンガン・ロックブラスト等) のヒット数。省略時はその技の規定値。'),
 });
 
 const fieldSchema = z
   .object({
     weather: z
       .enum(['Sand', 'Sun', 'Rain', 'Hail', 'Snow', 'Harsh Sunshine', 'Heavy Rain', 'Strong Winds'])
-      .optional(),
-    terrain: z.enum(['Electric', 'Grassy', 'Psychic', 'Misty']).optional(),
-    isReflect: z.boolean().optional().describe('Reflect on the defender side.'),
-    isLightScreen: z.boolean().optional().describe('Light Screen on the defender side.'),
-    isAuroraVeil: z.boolean().optional().describe('Aurora Veil on the defender side.'),
+      .optional()
+      .describe('天候 (Sand=すなあらし / Sun=にほんばれ / Rain=あまごい / Hail=あられ / Snow=ゆき / Harsh Sunshine=おおひでり / Heavy Rain=おおあめ / Strong Winds=らんきりゅう)。'),
+    terrain: z.enum(['Electric', 'Grassy', 'Psychic', 'Misty']).optional().describe('フィールド (エレキ/グラス/サイコ/ミスト)。'),
+    isReflect: z.boolean().optional().describe('防御側にリフレクター展開中。'),
+    isLightScreen: z.boolean().optional().describe('防御側にひかりのかべ展開中。'),
+    isAuroraVeil: z.boolean().optional().describe('防御側にオーロラベール展開中。'),
   })
   .optional();
 
@@ -107,7 +114,7 @@ const inputSchema = {
     .enum(['Singles', 'Doubles'])
     .default('Doubles')
     .describe(
-      'Battle format. Defaults to Doubles (VGC 2026 Reg M-A). Affects spread move multiplier and other doubles-specific mechanics.',
+      '対戦形式。デフォルト Doubles (VGC 2026 Reg M-A 想定)。スプレッド技は Doubles で自動 ×0.75。',
     ),
 };
 
@@ -115,10 +122,47 @@ function capitalize(s: string): string {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
-async function resolveNameEn(input: string): Promise<string> {
+type ResolvedPokemon = { nameEn: string; nameJa: string | null };
+type ResolvedNamed = { nameEn: string; nameJa: string | null };
+
+async function resolvePokemon(input: string): Promise<ResolvedPokemon> {
   const row = await db.query.pokemon.findFirst({ where: pokemonLookup(input) });
   if (!row) throw new Error(`Pokemon not found: "${input}"`);
+  return { nameEn: row.nameEn, nameJa: row.nameJa };
+}
+
+async function resolveMove(input: string): Promise<ResolvedNamed> {
+  const row = await db.query.moves.findFirst({ where: moveLookup(input) });
+  if (!row) throw new Error(`Move not found: "${input}"`);
+  return { nameEn: row.nameEn, nameJa: row.nameJa };
+}
+
+async function resolveNature(input: string): Promise<string> {
+  const row = await db.query.natures.findFirst({ where: natureLookup(input) });
+  if (!row) throw new Error(`Nature not found: "${input}"`);
   return row.nameEn;
+}
+
+async function resolveAbility(input: string): Promise<string> {
+  const row = await db.query.abilities.findFirst({ where: abilityLookup(input) });
+  if (!row) throw new Error(`Ability not found: "${input}"`);
+  return row.nameEn;
+}
+
+async function resolveItem(input: string): Promise<string> {
+  const row = await db.query.items.findFirst({ where: itemLookup(input) });
+  if (!row) throw new Error(`Item not found: "${input}"`);
+  return row.nameEn;
+}
+
+async function normalizeSide(side: z.infer<typeof sideSchema>) {
+  const [pkmn, nature, ability, item] = await Promise.all([
+    resolvePokemon(side.pokemon),
+    side.nature ? resolveNature(side.nature) : Promise.resolve(undefined),
+    side.ability ? resolveAbility(side.ability) : Promise.resolve(undefined),
+    side.item ? resolveItem(side.item) : Promise.resolve(undefined),
+  ]);
+  return { ...side, pkmn, nature, ability, item };
 }
 
 function buildPokemon(name: string, side: z.infer<typeof sideSchema>): Pokemon {
@@ -146,19 +190,20 @@ export function registerDamageCalc(server: McpServer): void {
     {
       title: 'damage_calc',
       description:
-        'Run a Gen 9 damage calculation via @smogon/calc. Defaults to Doubles (VGC 2026 Reg M-A); pass `game_type: "Singles"` for single battles. Spread moves auto-apply x0.75 in Doubles. Returns damage rolls (16 values), HP-percent range, KO chance, and a human-readable description. Set `teraType` to evaluate post-Tera matchups.',
+        '@smogon/calc Gen 9 ダメージ計算。デフォルト Doubles (VGC 2026 Reg M-A)、Singles なら `game_type: "Singles"`。Doubles ではスプレッド技に自動で ×0.75 適用。返り値はダメージロール 16 個・HP % 範囲・確定数・@smogon/calc の説明文。`teraType` でテラ後のマッチアップも検証可。',
       inputSchema,
     },
     async ({ attacker, defender, move, field, game_type }) => {
-      const [attackerName, defenderName] = await Promise.all([
-        resolveNameEn(attacker.pokemon),
-        resolveNameEn(defender.pokemon),
+      const [atkN, defN, moveResolved] = await Promise.all([
+        normalizeSide(attacker),
+        normalizeSide(defender),
+        resolveMove(move.name),
       ]);
 
-      const atkPokemon = buildPokemon(attackerName, attacker);
-      const defPokemon = buildPokemon(defenderName, defender);
+      const atkPokemon = buildPokemon(atkN.pkmn.nameEn, atkN);
+      const defPokemon = buildPokemon(defN.pkmn.nameEn, defN);
 
-      const calcMove = new Move(gen, move.name, {
+      const calcMove = new Move(gen, moveResolved.nameEn, {
         ...(move.isCrit !== undefined && { isCrit: move.isCrit }),
         ...(move.hits !== undefined && { hits: move.hits }),
       });
@@ -203,9 +248,18 @@ export function registerDamageCalc(server: McpServer): void {
             type: 'text',
             text: JSON.stringify(
               {
-                attacker: { name: attackerName, level: attacker.level },
-                defender: { name: defenderName, level: defender.level, maxHP: defMaxHP },
-                move: move.name,
+                attacker: {
+                  name: atkN.pkmn.nameJa ?? atkN.pkmn.nameEn,
+                  nameEn: atkN.pkmn.nameEn,
+                  level: attacker.level,
+                },
+                defender: {
+                  name: defN.pkmn.nameJa ?? defN.pkmn.nameEn,
+                  nameEn: defN.pkmn.nameEn,
+                  level: defender.level,
+                  maxHP: defMaxHP,
+                },
+                move: { name: moveResolved.nameJa ?? moveResolved.nameEn, nameEn: moveResolved.nameEn },
                 damage: {
                   rolls: result.damage,
                   min: minDmg,

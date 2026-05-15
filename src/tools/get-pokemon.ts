@@ -8,7 +8,7 @@ const inputSchema = {
     .string()
     .min(1)
     .describe(
-      'Pokemon name or ID. Accepts English ("Iron Valiant"), normalized ID ("ironvaliant"), or Japanese name ("テツノブジン"). Case/whitespace-insensitive.',
+      'ポケモン名または ID。日本語 ("テツノブジン")、英語 ("Iron Valiant")、正規化 ID ("ironvaliant") すべて受付。大文字小文字・空白は無視。',
     ),
 };
 
@@ -18,7 +18,7 @@ export function registerGetPokemon(server: McpServer): void {
     {
       title: 'get_pokemon',
       description:
-        'Look up a Pokemon by name or ID. Returns types, base stats, total, and ability candidates with slot (primary/secondary/hidden).',
+        'ポケモンを名前または ID で参照。タイプ・種族値・合計・特性候補 (primary/secondary/hidden スロット付き) を返す。',
       inputSchema,
     },
     async ({ name }) => {
@@ -47,10 +47,11 @@ export function registerGetPokemon(server: McpServer): void {
       const abilities = row.abilities
         .map((pa) => ({
           id: pa.ability.id,
-          name: pa.ability.nameEn,
-          nameJa: pa.ability.nameJa,
+          name: pa.ability.nameJa ?? pa.ability.nameEn,
+          nameEn: pa.ability.nameEn,
           slot: pa.slot,
           description: pa.ability.description,
+          flags: pa.ability.flags,
         }))
         .sort((a, b) => {
           const order = { primary: 0, secondary: 1, hidden: 2 } as const;
@@ -64,8 +65,8 @@ export function registerGetPokemon(server: McpServer): void {
             text: JSON.stringify(
               {
                 id: row.id,
-                name: row.nameEn,
-                nameJa: row.nameJa,
+                name: row.nameJa ?? row.nameEn,
+                nameEn: row.nameEn,
                 types: row.type2 ? [row.type1, row.type2] : [row.type1],
                 baseStats: { ...baseStats, total },
                 abilities,

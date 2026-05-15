@@ -1,13 +1,13 @@
 import 'dotenv/config';
-import postgres from 'postgres';
-import { drizzle } from 'drizzle-orm/postgres-js';
+import Database from 'better-sqlite3';
+import { drizzle } from 'drizzle-orm/better-sqlite3';
 import * as schema from './schema/index.js';
 
-const url = process.env.DATABASE_URL;
-if (!url) {
-  throw new Error('DATABASE_URL is not set. Copy .env.example to .env.');
-}
+const PATH = process.env.SQLITE_PATH ?? 'data/db.sqlite';
+const sqlite = new Database(PATH);
+sqlite.pragma('journal_mode = WAL');
+sqlite.pragma('foreign_keys = ON');
 
-export const sql = postgres(url, { max: 10 });
-export const db = drizzle(sql, { schema });
+export { sqlite };
+export const db = drizzle(sqlite, { schema });
 export type DB = typeof db;

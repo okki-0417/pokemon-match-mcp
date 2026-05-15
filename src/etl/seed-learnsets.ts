@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { Dex, toID } from '@pkmn/dex';
 import { eq } from 'drizzle-orm';
-import { db, sql } from '../db/client.js';
+import { db, sqlite } from '../db/client.js';
 import { learnsets, moves, pokemon } from '../db/schema/index.js';
 
 type LearnsetEntry = { learnset?: Record<string, string[]> };
@@ -35,23 +35,42 @@ const insertRows: Row[] = [];
 const noLearnsetIds: string[] = [];
 const skippedMoveCounts = new Map<string, number>();
 
+function hasGen9(learnset: Record<string, string[]>): boolean {
+  for (const sources of Object.values(learnset)) {
+    if (sources.some((s) => s.startsWith('9'))) return true;
+  }
+  return false;
+}
+
 function resolveLearnset(speciesId: string): Record<string, string[]> | undefined {
-  // 1. Champions mod for this id (full override)
+  // Champions mod for this id (full override) — assume authoritative even without Gen 9 sources.
   const champ = championsLearnsets[speciesId]?.learnset;
   if (champ) return champ;
-  // 2. Base @pkmn/sim Gen 9 for this id
+  // Base @pkmn/sim Gen 9 for this id, but only if it actually has Gen 9 entries.
+  // Some formes (e.g. gourgeistsuper) carry stale pre-Gen 9 learnsets that block the
+  // baseSpecies fallback, leaving the forme with zero usable moves after filtering.
   const base = baseLearnsets[speciesId]?.learnset;
-  if (base) return base;
-  // 3. Forms (mega / regional / cosmetic) inherit from baseSpecies in Showdown.
+  if (base && hasGen9(base)) return base;
+  // Forme inheritance. Try `changesFrom` first (the actual mega-evolves-from form,
+  // e.g. Floette-Mega ← Floette-Eternal, Meowstic-F-Mega ← Meowstic-F) before
+  // falling back to `baseSpecies` (the species root). For most megas these match,
+  // but Floette-Mega / Meowstic-F-Mega / Magearna-Original-Mega differ — without
+  // this preference they'd inherit from the wrong (and possibly more permissive)
+  // movepool.
   const species = Dex.species.get(speciesId);
-  const baseSpeciesId = species && species.baseSpecies ? toID(species.baseSpecies) : null;
-  if (baseSpeciesId && baseSpeciesId !== speciesId) {
-    const cm = championsLearnsets[baseSpeciesId]?.learnset;
+  const parentIds: string[] = [];
+  if (species?.changesFrom) parentIds.push(toID(species.changesFrom));
+  if (species?.baseSpecies) parentIds.push(toID(species.baseSpecies));
+  for (const parentId of parentIds) {
+    if (!parentId || parentId === speciesId) continue;
+    const cm = championsLearnsets[parentId]?.learnset;
     if (cm) return cm;
-    const bm = baseLearnsets[baseSpeciesId]?.learnset;
+    const bm = baseLearnsets[parentId]?.learnset;
     if (bm) return bm;
   }
-  return undefined;
+  // Last resort: if the own entry exists but had no Gen 9 sources, return it
+  // anyway so the integrity check surfaces the issue rather than silently dropping.
+  return base;
 }
 
 for (const pokemonId of championsIds) {
@@ -73,14 +92,13 @@ for (const pokemonId of championsIds) {
   }
 }
 
-await db.transaction(async (tx) => {
-  await tx.delete(learnsets);
-  // Insert in chunks to avoid hitting parameter limits.
-  const CHUNK = 1000;
-  for (let i = 0; i < insertRows.length; i += CHUNK) {
-    await tx.insert(learnsets).values(insertRows.slice(i, i + CHUNK));
-  }
-});
+// better-sqlite3 doesn't support async transactions. Do delete+insert in
+// sequence; WAL mode keeps the reseed fast.
+await db.delete(learnsets);
+const CHUNK = 250; // 250 * 3 cols = 750 params, under SQLite cap
+for (let i = 0; i < insertRows.length; i += CHUNK) {
+  await db.insert(learnsets).values(insertRows.slice(i, i + CHUNK));
+}
 
 console.log(`champions roster: ${championsIds.length} pokemon`);
 console.log(`  with learnset: ${championsIds.length - noLearnsetIds.length}`);
@@ -98,7 +116,7 @@ if (skippedMoveCounts.size) {
   for (const [id, n] of skippedMoveCounts) console.log(`  ${id} (${n} learner${n > 1 ? 's' : ''})`);
 }
 
-await sql.end();
+sqlite.close();
 
 if (noLearnsetIds.length || skippedMoveCounts.size) {
   console.error('\nintegrity check failed');

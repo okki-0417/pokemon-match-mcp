@@ -9,7 +9,7 @@ const inputSchema = {
   pokemon: z
     .string()
     .min(1)
-    .describe('Pokemon name or ID (EN/JP/normalized).'),
+    .describe('ポケモン名または ID (EN/JP/正規化)。'),
 };
 
 export function registerGetPokemonMoves(server: McpServer): void {
@@ -18,7 +18,7 @@ export function registerGetPokemonMoves(server: McpServer): void {
     {
       title: 'get_pokemon_moves',
       description:
-        'List the moves a Pokemon can learn in the Champions format. Each move includes type, category, base power, accuracy, PP, priority, and learn-source tags (e.g. "9L13" = level 13, "9M" = TM/record, "9E" = egg, "9T" = tutor).',
+        '指定ポケモンが Champions で覚える全技を一覧。各技にタイプ・分類・威力・命中・PP・優先度・習得方法タグ (例 "9L13"=Lv13、"9M"=TM/わざマシン、"9E"=タマゴ、"9T"=おしえわざ) を付与。',
       inputSchema,
     },
     async ({ pokemon: pokemonInput }) => {
@@ -44,15 +44,29 @@ export function registerGetPokemonMoves(server: McpServer): void {
         .where(eq(learnsets.pokemonId, row.id))
         .orderBy(asc(moves.id));
 
+      const movesOut = rows.map((m) => ({
+        id: m.id,
+        name: m.nameJa ?? m.nameEn,
+        nameEn: m.nameEn,
+        type: m.type,
+        category: m.category,
+        basePower: m.basePower,
+        accuracy: m.accuracy,
+        pp: m.pp,
+        priority: m.priority,
+        description: m.description,
+        sources: m.sources,
+      }));
+
       return {
         content: [
           {
             type: 'text',
             text: JSON.stringify(
               {
-                pokemon: { id: row.id, name: row.nameEn, nameJa: row.nameJa },
-                count: rows.length,
-                moves: rows,
+                pokemon: { id: row.id, name: row.nameJa ?? row.nameEn, nameEn: row.nameEn },
+                count: movesOut.length,
+                moves: movesOut,
               },
               null,
               2,
